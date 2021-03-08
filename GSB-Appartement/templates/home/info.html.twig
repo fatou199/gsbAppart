@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1><center> Information clients </h1></center>
+<p><table border='1' width='100%'>
+
+
+<tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Adresse</th>
+    <th>Code Ville</th>
+    <th>Tel</th>
+    <th>Username</th>
+    <th>Modifier</th>
+</tr>
+
+
+<tr>    
+    <th>{{clients.NOM}}</th>
+    <th>{{clients.PRENOM}}</th>
+    <th>{{clients.ADRESSEC}}</th>
+    <th>{{clients.CODEVILLEC}}</th>
+    <th>{{clients.TELC}}</th>
+    <th>{{clients.USERNAME}} </th>
+
+    <th><a href="{{path('editer_utilisateur', {'numero': clients.numero})}}" class="btn btn-primary"> Modifier </a></th>
+
+{% endblock %}
+

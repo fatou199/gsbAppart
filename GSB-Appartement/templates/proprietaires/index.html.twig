@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1><center>Consultation des proprietaires</h1></center>
+<p><table border='1' width='100%'>
+
+    <tr>
+    <td colspan="20"><center><a href="{{ path('add_proprietaires') }}">ajouter</a></center></td>
+</tr>
+
+<tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Adresse</th>
+    <th>Code Ville</th>
+    <th>Tel</th>
+    <th>Modifier</th>
+    <th>Supprimer</th>
+</tr>
+
+
+{% for prop in proprietaires %}
+
+<tr>    
+    <th>{{prop.NOM}}</th>
+    <th>{{prop.PRENOM}}</th>
+    <th>{{prop.ADRESSE}}</th>
+    <th>{{prop.CODEVILLE}}</th>
+    <th>{{prop.TEL}}</th>
+
+    <th><a href="{{path('modif_proprietaires', {'numero': prop.numero})}}" class="btn btn-primary"> Modifier </a></th>
+    <th><a href="{{path('delete_proprietaires',{'numero': prop.numero})}}" onclick="return confirm('Etes vous sur de vouloir supprimer')" class="btn btn-primary" > Supprimer </a></th>
+</tr>
+
+{% endfor %}
+
+
+{% endblock %}
+

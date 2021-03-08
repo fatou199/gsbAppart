@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Détails du propriétaire</h1>
+
+<table class="table-bordered table-tarifs table-striped ">
+<tr>
+    <th>Nom</th> 
+    <th>Prenom</th>
+    <th>Adresse</th>
+    <th>Code_Ville</th>
+    <th>Tel</th>    
+</tr>
+
+{% for proprio in proprietaires %}
+
+<tr>
+    <th>{{proprio.nom}}</th> 
+    <th>{{proprio.prenom}}</th>
+    <th>{{proprio.adresse}}</th>
+    <th>{{proprio.codeville}}</th>
+    <th>{{proprio.tel}}</th>
+    
+</tr>
+{% endfor %}
+
+
+{% endblock %}

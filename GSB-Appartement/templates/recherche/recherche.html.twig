@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<br>
+<h1>Recherche un appartement</h1>
+{{ form_start(rechercheForm)}}
+{{form_widget(rechercheForm)}}
+{{form_row(rechercheForm.typeappart)}}
+{{form_row(rechercheForm.prixlocmin)}}
+{{form_row(rechercheForm.prixlocmax)}}
+
+<button type="submit" class="btn btn-primary"> Rechercher </button>
+{{form_end(rechercheForm)}}
+
+<br>
+
+<div>
+    <h2> Les appartements </h2>
+    <div class="row">
+        {% for appart in appartements %}
+        <div class="col-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card_body">
+                    <h5 class="card-title">
+                        {{appart.typeappart}}
+                    </h5>
+                    <p class="card-text">{{appart.adresse}} ({{appart.codepostal}})</p>
+                    <p class="card-text">{{appart.prixloc}}</p>
+                </div>
+            </div>
+            <br>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+{% endblock %}
+

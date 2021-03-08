@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1><center>Consultation des appartements</h1></center>
+<a href="{{path('recherche')}}">Recherche des appartements</a>
+<p><table border='1' width='100%'>
+
+    <tr>
+    <td colspan="20"><center><a href="{{ path('add_appartements') }}">ajouter</a></center></td>
+</tr>
+
+<tr>
+    <th>Type Appart</th>
+    <th>Prix loc</th>
+    <th>Prix Charge</th>
+    <th>Adresse</th>
+    <th>Code Postal</th>
+    <th>Arrondissement</th>
+    <th>Etage</th>
+    <th>Ascenseur</th>
+    <th>Preavis</th>
+    <th>Date libre</th>
+    <th>Proprietaire</th>
+    <th>Locataire</th>
+    <th>Modifier</th>
+    <th>Supprimer</th>
+</tr>
+
+
+{% for appart in appartements %}
+
+<tr>
+    <th>{{appart.TYPEAPPART}}</th>
+    <th>{{appart.PRIXLOC}}</th>
+    <th>{{appart.PRIXCHARG}}</th>
+    <th>{{appart.ADRESSE}}</th>
+    <th>{{appart.CODEPOSTAL}}</th>
+    <th>{{appart.ARRONDISSEMENT}}</th>
+    <th>{{appart.ETAGE}}</th>
+    <th>{{appart.ASCENSEUR}}</th>
+    <th>{{appart.PREAVIS}}</th>
+    <th>{{appart.DATELIBRE|date("m/d/Y")}}</th>
+    <th><a href="{{path('detail_appartements',{'numappart': appart.numappart})}}" class="btn btn-primary"> Details </a></th>
+    <th><a href="{{path('detailloc_appartements')}}" class="btn btn-primary"> Details </a></th>
+    <th><a href="{{path('modif_appartements', {'numappart': appart.numappart})}}" class="btn btn-primary"> Modifier </a></th>
+    <th><a href="{{path('delete_appartements',{'numappart': appart.numappart})}}" onclick="return confirm('Etes vous sur de vouloir supprimer')" class="btn btn-primary" > Supprimer </a></th>
+</tr>
+
+{% endfor %}
+
+
+{% endblock %}

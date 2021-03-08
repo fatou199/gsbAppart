@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+{% if app.user %}
+        <h1>
+            Vous êtes connecté en tant que {{ app.user.nom }} {{ app.user.prenom }} 
+        </h1>
+{% endif %}
+
+{% endblock %}
+

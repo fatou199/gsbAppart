@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1><center> Consultation des clients </h1></center>
+<p><table border='1' width='100%'>
+<tr>
+    <td colspan="20"><center><a href="{{ path('add_clients') }}">ajouter</a></center></td>
+</tr>
+
+
+<tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Adresse</th>
+    <th>Code Ville</th>
+    <th>Tel</th>
+    <th>Modifier</th>
+    <th>Supprimer</th>
+</tr>
+
+
+{% for cli in clients %}
+
+<tr>    
+    <th>{{cli.NOM}}</th>
+    <th>{{cli.PRENOM}}</th>
+    <th>{{cli.ADRESSEC}}</th>
+    <th>{{cli.CODEVILLEC}}</th>
+    <th>{{cli.TELC}}</th>
+
+    <th><a href="{{path('modif_clients', {'numero': cli.numero})}}" class="btn btn-primary"> Modifier </a></th>
+    <th><a href="{{path('delete_clients',{'numero': cli.numero})}}" onclick="return confirm('Etes vous sur de vouloir supprimer')" class="btn btn-primary" >Supprimer </a></th>
+
+
+</tr>
+
+{% endfor %}
+
+
+{% endblock %}
+
